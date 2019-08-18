@@ -1,0 +1,14 @@
+[
+	{
+		"_id": "living_room_tv_toggle",
+		"protocol": "http",
+		"url": "http://mock-http:8422/test",
+		"verb": "POST"
+	},
+	{
+		"_id": "living_room_lights_toggle",
+		"protocol": "http",
+		"url": "http://mock-http:8422/test",
+		"verb": "POST"
+	}
+]

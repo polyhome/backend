@@ -1,0 +1,28 @@
+sudo: required
+language: node_js
+node_js:
+  - 10.16.0
+cache: skip
+services:
+  - docker
+env:
+  matrix:
+    - NODE_CONTAINER=10.16-stretch
+  global:
+    - secure: lXd5sgFnw4guWRmioDSAScBwdA5KO/evECZb1VmbY0jRJp19lh4QVnsjmIZAuUo0U8ESB1rD/9+DMTmSMIxHz8tx9fNX6C8yZU265K+2O+NlYX7udAJMNqK/uuxXKLJrbfFxL2jQ6A9KvL0skdY5i21gwNzOmPaHt6/mOULqXPbMuMRutpBDfdWpmWnoheXO98TCU2y5LRxQPkSMslHGFOrEb1l2F/R/w1pqCLeKpaZnF2RIijERPJ5ITOPUVUJx0NgGyhNdlKz4v2u2IKnA/yXE/MPq5jenwvWxbv2TeOhOfx8t88aFodMkXuopNx/mOswLOP2Iqz4xPo5xO9eNnTlJIODRqPoX0ARqVUBRq0lwC5i4MLhjvsvPiVrNIW9+e88g5ZKDc+ZQQ+NkxgdLB+A2JUFGygp2b0aRxVAEZiTfc6tqrrlZL8kA2C8cB+BZEp95qizDH5UoCnjNQz5Nxbru0WNiq0Kctz79/Asakuj6xLGLATNMNlWGt0iAN9boauxtg0owOfq1ZQwZ0LAnX14RXAcemS4pESSRX+d38PvN/u5Fn9kh09OXHhtEikgzm6EnqXs5B841M6qo8Kn/RsBqqkdl1tEQ8KPCQJx4AoDsRuLpuZa0si4+tpsrkFf6/vgL3Sg1602T7yk0qE+8rMS/Ct7TeFQUZAy9YnPaiAg=
+    - secure: OgkRdX2iSe7TKhWc431/OmjZg66d87uxk+o/s6SFl0UXYqRnhrdKQW06UPuH4fAYExqZD4zFsCfk5RB9O+b4+4YNYE3UuwpFziG9H2eWV/BYiaBedNHYLqiHs2OWMxgd9D6P1L9wVPOHKBwrw9XKNThy30cslhzQBFuNAVMnWMF0kmPERHG91Eq8UERUbk7o1vhJo8weFKIEYuav+LKIka2Dm0Ldzh89BU3mUpQ9Drt/OGLqEG4gPP53C9UJDSz58tyQ/akUWAlhWIJ9+8voFjijDuIGn5EcB2dTEBlmlAljazMaMYCn7IHzQpsl/nvdwY/A8uq3ZccHHQ//8fTisFjJNLyxvNXi4A4E57W7Ga4QxVQ+0ZqdRG9tdWxqlygYwKKerdVCC3wlcSaSW7cq7pKm2I2ZwwfPCAGGBQGKAJV3A/J/VbHmYVuVxOAbroA4aRt6Ek72Jah1CnXLRTmzR3UDhmFTr0W//3L1f4sChAPLLfOzVceDWgRhp8yrRosLx131npCXcg69dBXOTgZduKzjNGwcf3fkYq0QinQ3ingWRv0FPI0Ey+Y0pkbfXX5Vqnr81yDg8XN0uDWeDw4zpvgk/lmQFWh0vD9/yYS5Gyus/E8NONJ8+fUG4JLenSugnHW3p+K1x9mlXm3+HhQLV9nBEpUPj8NmmSZqqUq+q0U=
+before_install:
+  - docker pull node:$NODE_CONTAINER
+install:
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn install"
+script:
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn build"
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn lint"
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn test:unit"
+  - yarn codecov
+deploy:
+  provider: script
+  script: bash ./scripts/build.sh
+  on:
+    tags: true
+    branch: master

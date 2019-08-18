@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  backend:
+    container_name: ph-b
+    image: node:lts
+    hostname: ph_b
+    ports:
+      - 8421:8421
+      - 9229:9229
+    environment:
+      - PORT=8421
+      - MONGO_CONN_STRING=mongodb://root:password@mongo:27017/polyhome?authSource=admin
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: bash -c 'yarn install && yarn start:dev'
+
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password

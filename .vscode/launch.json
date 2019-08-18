@@ -1,0 +1,18 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Backend: Attach to Docker",
+			"type": "node",
+			"request": "attach",
+			"port": 9229,
+			"address": "localhost",
+			"localRoot": "${workspaceFolder}/dist",
+			"remoteRoot": "/app/dist",
+			"protocol": "inspector",
+			"restart": true,
+			"stopOnEntry": false,
+			"skipFiles": ["<node_internals>/**/*.js", "/app/node_modules/**/*.js"]
+		}
+	]
+}

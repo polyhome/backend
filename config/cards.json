@@ -1,0 +1,55 @@
+[
+	{
+		"_id": "living_room_tv_text",
+		"tag": "ph-text-field",
+		"state": {
+			"text": "Living Room Tv"
+		}
+	},
+	{
+		"_id": "living_room_lights",
+		"tag": "ph-text-field",
+		"state": {
+			"text": "Living Room Lights"
+		}
+	},
+	{
+		"_id": "living_room_tv_toggle",
+		"tag": "ph-toggle-btn",
+		"state": {
+			"toggled": false
+		},
+		"commands": [
+			{
+				"trigger": "toggle",
+				"_id": "living_room_tv_toggle"
+			}
+		]
+	},
+	{
+		"_id": "living_room_lights_toggle",
+		"tag": "ph-toggle-btn",
+		"state": {
+			"toggled": true
+		},
+		"commands": [
+			{
+				"trigger": "toggle",
+				"_id": "living_room_lights_toggle"
+			}
+		]
+	},
+	{
+		"_id": "living_room_tv_btn",
+		"tag": "ph-button",
+		"state": {
+			"text": "Toggle TV"
+		},
+		"commands": [
+			{
+				"trigger": "click",
+				"_id": "living_room_tv_toggle"
+			}
+		]
+	}
+]

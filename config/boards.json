@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "living-room",
+    "title": "Living Room",
+    "icon": "home",
+    "groups": [
+      { "_id": "living_room_tv" },
+      { "_id": "living_room_lights" },
+      { "_id": "living_room_tv_btn" }
+    ],
+    "position": 0
+  },
+  {
+    "_id": "kitchen",
+    "title": "Kitchen",
+    "icon": "home",
+    "groups": [{ "_id": "living_room_lights" }],
+    "position": 1
+  }
+]

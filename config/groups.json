@@ -1,0 +1,48 @@
+[
+	{
+		"_id": "living_room_tv",
+		"classes": ["card", "col-4", "row-2", "col-md-6", "row-md-1", "col-xs-12"],
+		"cards": [
+			{
+				"_id": "living_room_tv_text",
+				"classes": ["col-3", "col-md-4", "col-xs-8"]
+			},
+			{
+				"_id": "living_room_tv_toggle",
+				"classes": ["col-1", "col-md-2"]
+			}
+		]
+	},
+	{
+		"_id": "living_room_lights",
+		"classes": [
+			"card",
+			"col-3",
+			"row-3",
+			"col-md-6",
+			"row-md-4",
+			"col-xs-12",
+			"row-xs-2"
+		],
+		"cards": [
+			{
+				"_id": "living_room_lights",
+				"classes": ["col-2", "col-md-8", "row-xs-2"]
+			},
+			{
+				"_id": "living_room_lights_toggle",
+				"classes": ["col-1", "col-md-4", "row-xs-2"]
+			}
+		]
+	},
+	{
+		"_id": "living_room_tv_btn",
+		"classes": ["area-xs-7-1-1-12", "area-md-3-1-2-3", "area-3-1-1-4"],
+		"cards": [
+			{
+				"_id": "living_room_tv_btn",
+				"classes": ["col-5", "row-5", "col-md-12"]
+			}
+		]
+	}
+]
