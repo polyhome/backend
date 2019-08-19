@@ -16,11 +16,9 @@ export class ElementService extends MainService<Element> {
 	 */
 	async init(): Promise<void> {
 		const elementsFromFile = await this.fileSvc.get(FileNames.Elements);
-		console.log('DAFUQ');
 		Promise.all(
 			elementsFromFile.map(async url => {
 				const req = await Axios.get(url + 'manifest.json');
-				console.log(req.data);
 				return {
 					_id: req.data._id,
 					url,
