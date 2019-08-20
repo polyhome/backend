@@ -1,5 +1,5 @@
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/polyhome/backend)
-[![Build Status](https://cloud.drone.io/api/badges/polyhome/backend/status.svg)](https://cloud.drone.io/polyhome/backend)
+[![Build Status](https://travis-ci.com/polyhome/backend.svg?branch=master)](https://travis-ci.com/polyhome/backend)
 ![GitHub](https://img.shields.io/github/license/polyhome/backend)
 [![codecov](https://codecov.io/gh/polyhome/backend/branch/master/graph/badge.svg)](https://codecov.io/gh/polyhome/backend)
 
