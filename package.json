@@ -55,7 +55,7 @@
 		"@types/node": "11.13.4",
 		"@types/socket.io": "^2.1.2",
 		"@types/supertest": "2.0.7",
-		"codecov": "^3.5.0",
+		"codecov": "^3.6.5",
 		"jest": "24.7.1",
 		"prettier": "1.17.0",
 		"supertest": "4.0.2",
